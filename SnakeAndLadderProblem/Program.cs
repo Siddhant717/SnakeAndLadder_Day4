@@ -6,7 +6,12 @@ namespace SnakeAndLadderProblem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int startposition = 0;
+
+            Console.WriteLine("Please enter your name :");
+            string name = Console.ReadLine();
+
+            Console.WriteLine( name+ " Your current position is :" + startposition);
         }
     }
 }
