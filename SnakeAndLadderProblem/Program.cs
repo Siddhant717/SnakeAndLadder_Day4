@@ -6,35 +6,46 @@ namespace SnakeAndLadderProblem
     {
         static void Main(string[] args)
         {
-         
+             const int NoPlay = 0, Ladder = 1, Snake = 2;
             int startposition = 0;
-            Console.WriteLine("Current Position is " + startposition);
 
+          
+
+            Console.WriteLine("Player position is "+ startposition);
             Random random = new Random();
             int number = random.Next(1, 7);
-            Console.WriteLine("The number appeared on dice is " + number);
+            Console.WriteLine("After rolling the die,the number is" + number);
+            startposition = startposition + number;
+            Console.WriteLine("Position of Player is " + startposition);
 
-            int option = random.Next(0, 3);
-
-            switch (option)
+            while (startposition < 100)
             {
-                case 0:
-                    Console.WriteLine("No play");
-                    
-                    break;
-                case 1:
-                    Console.WriteLine("Yeah!Ladder");
-                    startposition = startposition + number;
-                    Console.WriteLine("Now your position is " + startposition);
-                    break;
-                case 2:
-                    Console.WriteLine("Oops!Snake");
-                   
-                    startposition = startposition - number;
+                int option = random.Next(0, 3);
 
-                    Console.WriteLine("Again come back to " + startposition);
-                    break;
+                switch (option)
+                {
+                    case NoPlay:
+                        startposition += 0;
+                        Console.WriteLine("Player stays in the same position");
+                        break;
+                    case Ladder:
+                        startposition += number;
+                        Console.WriteLine("Yeah!Ladder {0} ", startposition);
+                        break;
+                    case Snake:
+                        startposition -= number;
+                        Console.WriteLine("Oops!Snake {0} ", startposition);
+                        if (startposition < 0)
+                        {
+                            startposition = 0;
+                        }
+                        break;
 
-            }   }   
-    }
+
+                }
+            }
+
+        }
+
+    }   
 }
